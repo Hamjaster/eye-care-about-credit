@@ -82,14 +82,15 @@ export default function TeamManagement() {
   return (
     <>
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold">
+        <h1 className="text-lg md:text-2xl font-bold">
           My Team Members (Ameco Capital Inc)
         </h1>
         <button
-          className="bg-green-500 hover:bg-green-600 rounded-md text-white text-sm font-semibold py-2 px-4"
+          className="text-xs bg-green-500 hover:bg-green-600 rounded-md text-white md:text-sm font-semibold py-2 px-4"
           onClick={() => setIsAddModalOpen(true)}
         >
-          <UserPlus className="inline-block w-5 mr-2" /> Add New Team Member
+          <UserPlus className="inline-block w-3 md:w-5 mr-2" /> Add New Team
+          Member
         </button>
       </div>
 

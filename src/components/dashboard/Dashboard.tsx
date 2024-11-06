@@ -5,12 +5,12 @@ import RightPart from "./RightPart";
 
 const Dashboard: React.FC = () => {
   return (
-    <div className="flex flex-row">
-      <div className="w-[40%] flex flex-col left">
+    <div className="flex flex-col md:flex-row">
+      <div className="w-full md:w-[40%] flex flex-col left">
         <CreditScore />
         <CreditDetails />
       </div>
-      <div className="w-[60%] right">
+      <div className="w-full md:w-[60%] right">
         <RightPart />
       </div>
     </div>

@@ -180,7 +180,7 @@ export default function SendLetter() {
               value={deliveryMethod}
               onValueChange={setDeliveryMethod}
             >
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Card className="relative">
                   <CardHeader>
                     <div className="flex items-center gap-2">

@@ -24,6 +24,10 @@ import ClientPortal from "./components/client portal";
 import Home from "./components/client portal/Home";
 import DisputeDetails from "./components/client portal/DisputeDetails";
 import Settings from "./components/client portal/Settings";
+import Invoices from "./components/dashboard/Invoices";
+import ContactPage from "./components/Contact";
+import DisputeWorkflowLayout from "./components/dashboard/DisputeWorkflow/DisputeWorkflowLayout";
+import Creditors from "./components/dashboard/Creditors";
 
 function App() {
   return (
@@ -33,19 +37,29 @@ function App() {
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/auth" element={<LoginSignup />} />
         <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route path="contact" element={<ContactPage />} />
           <Route index element={<Dashboard />} /> {/* Default dashboard page */}
           <Route path="clients" element={<Clients />} />
+          <Route path="creditors" element={<Creditors />} />
+          <Route path="invoices" element={<Invoices />} />
           <Route path="messages" element={<MessagesPage />} />
           <Route path="client-credit" element={<ClientDashboard />} />
-          <Route path="client-credit/dispute" element={<DisputeWorkflow />} />
           <Route
+            path="client-credit/dispute-items"
+            element={<DisputeWorkflowLayout />}
+          >
+            <Route index element={<DisputeWorkflow />} />
+            <Route path="letter" element={<DisputeLetter />} />
+            <Route path="send-letters" element={<SendLetter />} />
+          </Route>
+          {/* <Route
             path="client-credit/dispute/letter"
             element={<DisputeLetter />}
           />
           <Route
             path="client-credit/dispute/letter/send"
             element={<SendLetter />}
-          />
+          /> */}
           <Route path="dispute-letters" element={<DisputeLetters />} />
           <Route path="my-company" element={<MyCompany />} />
           <Route path="my-account" element={<AccountPage />} />

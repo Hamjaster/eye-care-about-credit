@@ -32,11 +32,14 @@ export default function CreditScore({ client }: { client: ClientType }) {
           <div className="mt-8">
             <CreditScoreChart score={500} />
           </div>
-          <div className="w-full flex items-center justify-center mt-5 mb-3">
+          <div className="w-full flex items-center justify-center space-x-2 mt-5 mb-3">
             <Button
               onClick={() => setImportAuditModal(true)}
-              className="px-6 text-xs mx-auto self-center py-5 rounded-2xl "
+              className="px-6 text-xs  self-center py-5 rounded-2xl "
             >
+              Import Report
+            </Button>
+            <Button className="px-6 text-xs  self-center py-5 rounded-2xl ">
               Update your credit score
             </Button>
           </div>

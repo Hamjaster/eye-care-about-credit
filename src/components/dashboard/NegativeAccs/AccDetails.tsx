@@ -48,7 +48,7 @@ export default function AccDetails({
         <button
           onClick={() => {
             if (disputeWorking) {
-              navigate("/dashboard/client-credit/dispute");
+              navigate("/dashboard/client-credit/dispute-items");
             }
           }}
           className="w-full bg-black text-white py-3 rounded-2xl font-semibold mt-4"

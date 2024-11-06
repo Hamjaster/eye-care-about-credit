@@ -235,12 +235,7 @@ export default function DisputeWorkflow() {
       </Table>
 
       <div className="flex justify-end gap-4 mt-6">
-        <Button
-          className="bg-gradient-to-r from-websitePrimaryLight via-blue-300 to-green-200 text-gray-900"
-          variant="ghost"
-        >
-          Generate with AI
-        </Button>
+       
         <Button
           onClick={() => navigate("/dashboard/client-credit/dispute/letter")}
           variant="outline"

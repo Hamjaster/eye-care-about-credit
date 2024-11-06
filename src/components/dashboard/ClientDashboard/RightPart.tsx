@@ -39,8 +39,8 @@ export default function RightPart() {
   const [selectedOption, setSelectedOption] = useState("negative");
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <div className="flex space-x-4 mb-6">
+    <div className="py-4 md:p-6 bg-gray-100 min-h-screen">
+      <div className="flex text-xs md:text-sm space-x-2 items-center md:space-x-4 mb-6">
         {options.map((option) => (
           <button
             key={option.id}
@@ -50,7 +50,7 @@ export default function RightPart() {
             onClick={() => setSelectedOption(option.id)}
           >
             <span
-              className={` ${option.countColor}  text-white h-6 mr-3 text-xs flex items-center justify-center font-semibold w-6 rounded-full`}
+              className={` hidden  ${option.countColor}  text-white w-6 h-6 mr-3 text-xs md:flex items-center justify-center font-semibold  rounded-full`}
             >
               {option.count}
             </span>

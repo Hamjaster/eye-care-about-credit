@@ -254,18 +254,28 @@ export default function DisputeLetter() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between gap-4 mt-4">
+                  <div className="flex flex-col md:flex-row items-center justify-between gap-4 mt-4">
                     <Button
                       onClick={() =>
-                        navigate("/dashboard/client-credit/dispute/letter/send")
+                        navigate(
+                          "/dashboard/client-credit/dispute/send-letters"
+                        )
                       }
                       className="bg-green-600 hover:bg-green-700"
                     >
                       Save & Continue to Print
                     </Button>
-                    <Button onClick={() => setIsModalOpen(true)}>
-                      Add From Saved Letters
-                    </Button>
+                    <div className="flex  space-x-4">
+                      <Button
+                        className="bg-gradient-to-r from-websitePrimaryLight via-blue-300 to-green-200 text-gray-900"
+                        variant="ghost"
+                      >
+                        Generate with AI
+                      </Button>
+                      <Button onClick={() => setIsModalOpen(true)}>
+                        Add From Saved Letters
+                      </Button>
+                    </div>
                   </div>
 
                   {/* Adding save dispute items */}

@@ -80,7 +80,7 @@ export default function DisputeLetters() {
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Clients</h1>
 
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-4">
         <div className="flex items-center space-x-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -89,7 +89,7 @@ export default function DisputeLetters() {
               placeholder="Serch By Letter Name"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
+              className="pl-10 "
             />
           </div>
           <DropdownMenu>
@@ -211,15 +211,16 @@ export default function DisputeLetters() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex w-full md:w-min mt-3 md:mt-0 items-center space-x-4">
           <Button
             onClick={() => setIsModalOpen(true)}
-            className="bg-green-500 hover:bg-green-600 text-white"
+            className="w-full bg-green-500 hover:bg-green-600 text-white"
           >
             + Add New Letter
           </Button>
         </div>
       </div>
+
       <div>
         <Table>
           <TableHeader>

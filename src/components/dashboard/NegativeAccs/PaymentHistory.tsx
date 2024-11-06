@@ -10,12 +10,12 @@ import { MdOutlineDone } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
 export default function PaymentHistory() {
   return (
-    <div className="bg-gray-50 rounded-2xl  p-6 pb-8">
+    <div className="bg-gray-50 rounded-2xl p-6 pb-8">
       <h2 className="text-lg font-semibold mb-2">Payment History</h2>
       <p className="text-sm text-gray-600 mb-8">
         You have made 95% of payments for this account on time.
       </p>
-      <div className="grid grid-cols-14 gap-x-1 gap-y-2">
+      <div className="w-full grid grid-cols-14 gap-x-1 gap-y-2">
         {/* <div className="">g</div> */}
         {[
           " ",

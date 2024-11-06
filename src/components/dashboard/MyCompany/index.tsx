@@ -6,32 +6,30 @@ import RolesAndPermission from "./Roles";
 export default function MyCompany() {
   const sidebarItems: any = {
     "My Company Profile": <CompanyProfile />,
-    "My Team Members (Users)": <TeamManagement />,
+    "My Team Members": <TeamManagement />,
     "Roles & Permissions": <RolesAndPermission />,
   };
   const [selectedItem, setselectedItem] =
     useState<string>("My Company Profile");
 
   return (
-    <div className="flex h-[85vh] bg-gray-100">
+    <div className="flex flex-col md:flex-row h-[85vh] bg-gray-100">
       {/* Sidebar */}
-      <div className="w-52 bg-white">
-        <nav>
-          {Object.keys(sidebarItems).map((item, index) => (
-            <a
-              key={index}
-              onClick={() => setselectedItem(item)}
-              href="#"
-              className={`block p-4 text-sm hover:bg-red-200 ${
-                item === selectedItem
-                  ? "  bg-red-100 hover:bg-red-200  text-websitePrimary hover:text-websitePrimaryDark"
-                  : ""
-              }`}
-            >
-              {item}
-            </a>
-          ))}
-        </nav>
+      <div className="w-full flex  flex-row md:flex-col md:w-52 bg-white border-b-2 md:border-none">
+        {Object.keys(sidebarItems).map((item, index) => (
+          <a
+            key={index}
+            onClick={() => setselectedItem(item)}
+            href="#"
+            className={`block w-full p-2 md:p-4 text-xs md:text-sm hover:bg-red-200 ${
+              item === selectedItem
+                ? "  bg-red-100 hover:bg-red-200  text-websitePrimary hover:text-websitePrimaryDark"
+                : ""
+            }`}
+          >
+            {item}
+          </a>
+        ))}
       </div>
 
       {/* Main Content */}

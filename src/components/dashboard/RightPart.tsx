@@ -31,7 +31,7 @@ export default function RightPart() {
   const [selectedOption, setSelectedOption] = useState("negative");
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="py-4 md:p-6 bg-gray-100 min-h-screen">
       <div className="flex space-x-4 mb-6">
         {options.map((option) => (
           <button

@@ -14,13 +14,13 @@ export default function NegativeAccs({
     <div>
       <AccTable />
 
-      <div className="flex space-x-2">
-        <div className="w-1/2 space-y-2">
+      <div className="flex flex-col space-y-3 md:flex-row  md:space-x-2">
+        <div className="w-full md:w-1/2 space-y-2">
           <Overview percentage={100} />
           <PaymentHistory />
         </div>
 
-        <div className="w-1/2 space-y-2">
+        <div className="w-full md:w-1/2 space-y-2">
           <AccDetails disputeWorking={disputeWorking} />
         </div>
       </div>

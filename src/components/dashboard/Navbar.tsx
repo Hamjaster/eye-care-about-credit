@@ -1,30 +1,39 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
-import { Button } from "../ui/button";
-import { Bell } from "lucide-react";
-import logo from "../../assets/logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Bell, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import logo from "../../assets/logo.png";
+import NotificationsBell from "../ui/NotificationBell";
+
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState("dashboard");
+
   const navItems = [
     "dashboard",
     "clients",
     "dispute-letters",
     "my-company",
     "messages",
+    "creditors",
     "documents",
+    "contact",
     "my-account",
   ];
+
   const formatString = (str: string): string => {
     return str
-      .split("-") // Split the string by hyphens
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
-      .join(" "); // Join the words with a space
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
   };
-  const [activeItem, setActiveItem] = useState("dashboard");
+
   useEffect(() => {
-    console.log(location.pathname);
-    console.log(location.pathname.split("/")[2], "current");
     setActiveItem(
       location.pathname.split("/").length === 2 &&
         location.pathname.split("/")[1] === "dashboard"
@@ -33,39 +42,63 @@ export default function Navbar() {
     );
   }, [location]);
 
+  const handleNavigation = (item: string) => {
+    setActiveItem(item);
+    setIsOpen(false);
+    navigate(item === "dashboard" ? "/dashboard" : `/dashboard/${item}`);
+  };
+
   return (
-    <header className="flex mx-6 justify-between items-center mb-6">
+    <header className="flex flex-wrap mx-6 justify-between items-center mb-6">
       <div className="flex items-center space-x-2">
-        <img src={logo} className="w-24" alt="" srcset="" />
+        <img src={logo} className="w-20" alt="Logo" />
       </div>
-      <nav className="flex space-x-2 text-xs">
-        {navItems.map((item) => {
-          return (
-            <Button
-              onClick={() => {
-                setActiveItem(item);
-                navigate(
-                  item === "dashboard" ? "/dashboard" : `/dashboard/${item}`
-                );
-              }}
-              className={` ${
-                item === activeItem
-                  ? "bg-websitePrimary text-white hover:bg-websitePrimaryDark"
-                  : "hover:bg-websitePrimaryLight bg-white text-black"
-              }   shadow-none  px-4 py-5 rounded-2xl `}
-            >
-              {formatString(item)}
-            </Button>
-          );
-        })}
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <SheetTrigger asChild>
+          <Button variant="outline" size="icon" className="lg:hidden">
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Toggle navigation menu</span>
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+          <nav className="flex flex-col space-y-4">
+            {navItems.map((item) => (
+              <Button
+                key={item}
+                onClick={() => handleNavigation(item)}
+                className={`${
+                  item === activeItem
+                    ? "bg-websitePrimary text-white hover:bg-websitePrimaryDark"
+                    : "hover:bg-websitePrimaryLight bg-white text-black"
+                } shadow-none px-4 py-5 rounded-2xl w-full justify-start`}
+              >
+                {formatString(item)}
+              </Button>
+            ))}
+          </nav>
+        </SheetContent>
+      </Sheet>
+      <nav className="hidden lg:flex space-x-2 ">
+        {navItems.map((item) => (
+          <Button
+            key={item}
+            onClick={() => handleNavigation(item)}
+            className={`${
+              item === activeItem
+                ? "bg-websitePrimary text-white hover:bg-websitePrimaryDark"
+                : "hover:bg-websitePrimaryLight bg-white text-black"
+            } shadow-none px-3 py-3 text-[13px] rounded-2xl`}
+          >
+            {formatString(item)}
+          </Button>
+        ))}
       </nav>
       <div className="flex items-center space-x-4">
-        {/* <Bell className="w-6 h-6" /> */}
+        <NotificationsBell />
         <img
-          src="https://i.pravatar.cc/300
-"
+          src="https://i.pravatar.cc/300"
           alt="User avatar"
-          className="w-12 h-12 rounded-full"
+          className="w-10 h-10 rounded-full"
         />
       </div>
     </header>

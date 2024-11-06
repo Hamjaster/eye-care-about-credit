@@ -306,8 +306,8 @@ export default function ClientsTable() {
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Clients</h1>
 
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center space-x-4">
+      <div className="flex flex-col md:flex-row justify-between md:items-center mb-4">
+        <div className="grid grid-cols-2 md:flex md:flex-row items-center overflow-x-scroll space-x-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button

@@ -10,7 +10,7 @@ const accountData = {
 };
 export default function AccTable() {
   return (
-    <table className="w-full mb-2 text-sm">
+    <table className="w-full mb-2 text-[10px] sm:text-sm">
       <thead className="">
         <tr className="text-left text-gray-600">
           <th className="pb-2 pl-2 font-normal">Date Open</th>
