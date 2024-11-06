@@ -20,6 +20,7 @@ export default function Navbar() {
     "dispute-letters",
     "my-company",
     "messages",
+    "invoices",
     "creditors",
     "documents",
     "contact",

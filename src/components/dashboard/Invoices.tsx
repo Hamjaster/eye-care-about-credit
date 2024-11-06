@@ -103,7 +103,7 @@ export default function Invoices() {
   };
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto py-10 px-10">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-2xl font-bold">Invoices</h1>
         <Button onClick={() => setIsDialogOpen(true)}>
